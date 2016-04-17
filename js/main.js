@@ -28,12 +28,30 @@ require([
 	map.addLayer( routeLayer )
 	map.addLayer( bikeRackHeatmapLayer ) 
 
-  	var el = document.querySelector('#control button')
+  	var b1 = document.querySelector('#control button:nth-child(1)')
   	var isHeatOn = true
-  	el.onclick =  function(){
+  	b1.onclick = function(){
 		if( isHeatOn ) bikeRackMarkLayer.hide() 
   		else bikeRackMarkLayer.show()
   		isHeatOn = !isHeatOn		
   	} 
+
+  	var b2 = document.querySelector('#control button:nth-child(2)')
+  	var isB2On = true
+  	b2.onclick = function(){
+		if( isB2On ) routeLayer.hide() 
+  		else routeLayer.show()
+  		isB2On = !isB2On		
+  	} 
+
+  	var b3 = document.querySelector('#control button:nth-child(3)')
+  	var isB3On = true
+  	b3.onclick = function(){
+		if( isB3On ) bikeRackHeatmapLayer.hide() 
+  		else bikeRackHeatmapLayer.show()
+  		isB3On = !isB3On		
+  	} 
+
+
 
 }) 
