@@ -23,11 +23,13 @@ require([
 		maxZoom: 35
 	}) 
 
-    // TODO addLayers( [] ) TODO
-	map.addLayer( bikeRackMarkLayer )
-	map.addLayer( routeLayer )
-	map.addLayer( bikeRackHeatmapLayer ) 
-	map.addLayer( bikeShopLayer )
+	map.addLayers( [ 
+		bikeSignLayer, 
+		bikeRackMarkLayer, 
+		routeLayer, 
+		bikeRackHeatmapLayer, 
+		bikeShopLayer 
+		] )
 
   	var b1 = document.querySelector('#control button:nth-child(1)')
   	var isHeatOn = true
@@ -61,5 +63,12 @@ require([
   		isB4On = !isB4On		
   	} 
 
+  	var b5 = document.querySelector('#control button:nth-child(5)')
+  	var isB5On = true
+  	b5.onclick = function(){
+		if( isB5On ) bikeSignLayer.hide() 
+  		else bikeSignLayer.show()
+  		isB5On = !isB5On		
+  	} 
 
 }) 

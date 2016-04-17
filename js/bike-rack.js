@@ -6,13 +6,15 @@ require([
 		"esri/map",
 		"esri/renderers/HeatmapRenderer", 
 		"esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleFillSymbol", "esri/renderers/SimpleRenderer", 
-		 "esri/Color" 
+		"esri/Color",
+       	"esri/InfoTemplate" 
 	], function ( 
 		FeatureLayer, 
 		Map, 
 		HeatmapRenderer,
 		SimpleLineSymbol, SimpleFillSymbol, SimpleRenderer,
-		Color
+		Color,
+        InfoTemplate
 	){
 
 	var bikeRackURL = "http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/SeattleBikes/FeatureServer/0" 
@@ -39,8 +41,14 @@ var u = 'http://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/Ma
 var bU = 'http://gisrevprxy.seattle.gov/ArcGIS/rest/services/SDOT_EXT/DSG_datasharing/MapServer/21'
 var cU = 'http://gisrevprxy.seattle.gov/ArcGIS/rest/services/SDOT_EXT/DSG_datasharing/MapServer/22'
 var dU = 'http://services5.arcgis.com/jpyPhilPVQexyw4j/arcgis/rest/services/Seattle_Bike_Shops/FeatureServer/0'
+
+	var template = new InfoTemplate();
+	template.setTitle("<b>${UNITDESC}</b>");
+	template.setContent("Rack Capacity: ${RACK_CAPAC}");
+
 	bikeRackMarkLayer= new FeatureLayer( bikeRackURL, {
 		mode: FeatureLayer.MODE_ONDEMAND,
+        infoTemplate: template,
 		outFields: ["*"] 
 	}  ) 
 
