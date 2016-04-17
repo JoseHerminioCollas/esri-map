@@ -27,6 +27,7 @@ require([
 	map.addLayer( bikeRackMarkLayer )
 	map.addLayer( routeLayer )
 	map.addLayer( bikeRackHeatmapLayer ) 
+	map.addLayer( bikeShopLayer )
 
   	var b1 = document.querySelector('#control button:nth-child(1)')
   	var isHeatOn = true
@@ -52,6 +53,13 @@ require([
   		isB3On = !isB3On		
   	} 
 
+  	var b4 = document.querySelector('#control button:nth-child(4)')
+  	var isB4On = true
+  	b4.onclick = function(){
+		if( isB4On ) bikeShopLayer.hide() 
+  		else bikeShopLayer.show()
+  		isB4On = !isB4On		
+  	} 
 
 
 }) 

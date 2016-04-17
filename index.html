@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Esri Maps</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Esri Map</title>
+  <link rel="stylesheet" href="http://js.arcgis.com/3.16/esri/css/esri.css">
+  <link href="css/main.css" rel="stylesheet">
+  <style>
+  #control{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 13px;
+    left: 3px;
+    padding: 12px;
+  }
+  #control button{
+    display: inline-block;
+    margin: 3px 0
+  }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
 
-	<link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
-	<script src="https://js.arcgis.com/3.16/"></script>
+  <section id="control">
+    <button>Rack Markers</button>
+    <button>Bike Route</button>
+    <button>Rack Heat</button>
+    <button>Bike Shop</button>
+  </section>
+  
+  <script src="http://js.arcgis.com/3.16/"></script>
+    <script src="js/bike-route.js"></script>  
+    <script src="js/bike-rack.js"></script> 
+    <script src="js/bike-shop.js"></script> 
+    <script src="js/main.js"></script>
 
-  </head>
-
-
-<body class="claro">
-  <div id="mapDiv"></div>
-
-
-<script> 
-var map;
-require(["esri/map", "dojo/domReady!"], function(Map) {
-  map = new Map("mapDiv", {
-    center: [-56.049, 38.485],
-    zoom: 3,
-    basemap: "streets"
-  });
-});
-
-</script>
 </body>
-
 </html>
-
+ 
